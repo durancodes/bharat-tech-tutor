@@ -613,7 +613,7 @@ erDiagram
     CONCEPTS ||--o{ LEARNING_SESSIONS : used_in
     
     USERS {
-        string userId PK
+        string userId
         string email
         string name
         string passwordHash
@@ -621,45 +621,39 @@ erDiagram
         string difficultyLevel
         number createdAt
         number lastLoginAt
-        object profileMetadata
     }
     
     CONCEPTS {
-        string conceptId PK
+        string conceptId
         string title
         string category
         string baseContent
         string difficulty
-        array prerequisites
         number estimatedTime
-        array tags
     }
     
     LEARNING_SESSIONS {
-        string userId PK
-        string sessionId SK
+        string userId
+        string sessionId
         string conceptId
         number startTime
         number endTime
-        object evaluationResult
         string difficultyLevel
     }
     
     PROGRESS_METRICS {
-        string userId PK
+        string userId
         number lps
         number pps
-        map conceptScores
         number lastUpdated
     }
     
     DIFFICULTY_AUDIT_LOG {
-        string userId PK
-        number timestamp SK
+        string userId
+        number timestamp
         string oldLevel
         string newLevel
         string reason
-        object performanceMetrics
     }
 ```
 
